@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8 ball</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        let answer = ['Absolutt ikke', 'Hmm, kanskje', 'Selvfølgelig', 'Ja', 'Nei', 'Spør igjen', 'Tror ikke det gitt', 'Så klart!'];
+        
+
+        updateView()
+
+        function updateView(){
+            document.getElementById('app').innerHTML=/*html*/`
+            <div id="answerDiv" onclick="clickForAnswer()">Spør og få svar</div>
+            `;
+        }
+
+        function clickForAnswer(){
+            let randomAnswer = answer[Math.floor(Math.random()*answer.length)];
+            for (i = 0; i<answer.length; i++){
+              document.getElementById('answerDiv').innerHTML= `${randomAnswer}`; 
+              }
+            }
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin: 200px;
+        }
+        #app {
+            border: solid 1px;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            display: grid;
+            justify-content: center;
+            background-color: black;
+        }
+        #answerDiv{
+            border: solid 1px;
+            border-radius: 10px;
+            display: grid;
+            justify-content: center;
+            width: 150px;
+            height: 100px;
+            line-height: 100px;
+            margin-top: 60%;
+            background-color: rgb(211, 217, 222);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: small;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>
